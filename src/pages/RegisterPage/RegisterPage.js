@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import clayful from "clayful/client-js";
 
 function RegisterPage() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
-
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     var Customer = clayful.Customer;
@@ -27,11 +26,11 @@ function RegisterPage() {
       if (err) {
         // Error case
         console.log(err.code);
+        return;
       }
-
-      var data = result.data;
-
-      console.log(data);
+      navigate("/login");
+      // var data = result.data;
+      // console.log(data);
     });
   };
 

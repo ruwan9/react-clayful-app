@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import clayful from "clayful/client-js";
+import { AuthContext } from "../../context/AuthContext";
 
 function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { isAuthenticated } = useContext(AuthContext);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -35,6 +37,7 @@ function LoginPage() {
 
       // console.log(data);
       navigate("/");
+      isAuthenticated();
     });
   };
 

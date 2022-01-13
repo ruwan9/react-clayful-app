@@ -25,7 +25,7 @@ function LandingPage() {
     console.log(response.headers);
     console.log(response.data);
   });
-  return <div>Landing Page</div>;
+  return <div className="pageWrapper">Landing Page</div>;
 }
 
 export default LandingPage;

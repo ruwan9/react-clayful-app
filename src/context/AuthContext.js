@@ -1,8 +1,7 @@
 import { createContext, useState } from "react";
-import { clayful } from "clayful/client-js";
+import clayful from "clayful/client-js";
 import { useNavigate } from "react-router-dom";
-
-export const AuthContext = createContext();
+export const AuthContext = createContext(); // 다른 곳에서도 사용할 수 있도록
 
 const AuthContextProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
@@ -11,8 +10,8 @@ const AuthContextProvider = ({ children }) => {
   const isAuthenticated = () => {
     var Customer = clayful.Customer;
 
-    var options = {
-      Customer: localStorage.getItem("accessToken"),
+    let options = {
+      customer: localStorage.getItem("accessToken"),
     };
 
     Customer.isAuthenticated(options, function (err, result) {
@@ -32,7 +31,8 @@ const AuthContextProvider = ({ children }) => {
         setIsAuth(false);
       }
 
-      console.log(data);
+      // console.log(data);
+      // console.log(isAuth);
     });
   };
   const signOut = () => {

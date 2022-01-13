@@ -20,7 +20,7 @@ function LoginPage() {
 
     var Customer = clayful.Customer;
 
-    var payload = {
+    const payload = {
       email,
       password,
     };
@@ -35,24 +35,26 @@ function LoginPage() {
       localStorage.setItem("customerUid", data.customer);
       localStorage.setItem("accessToken", data.token);
 
-      // console.log(data);
+      console.log(data);
       navigate("/");
       isAuthenticated();
     });
   };
 
   return (
-    <div className="auth-wrapper">
-      <h1>로그인</h1>
-      <form onSubmit={handleSubmit}>
-        <input onChange={handleEmailChange} name="email" type="email" placeholder="Apple ID" value={email} />
-        <input onChange={handlePasswordChange} name="password" type="password" placeholder="password" value={password} />
-        <p>Apple ID는 iTunes, App Store, iCloud에 로그인할 때 사용하는 이메일 주소입니다.</p>
-        <button type="submit">로그인</button>
-        <Link to="register" style={{ color: "gray", textDecoration: "none" }}>
-          Apple ID가 없으신가요? 지금 생성.
-        </Link>
-      </form>
+    <div className="pageWrapper">
+      <div className="auth-wrapper">
+        <h1>로그인</h1>
+        <form onSubmit={handleSubmit}>
+          <input onChange={handleEmailChange} name="email" type="email" placeholder="Apple ID" value={email} />
+          <input onChange={handlePasswordChange} name="password" type="password" placeholder="password" value={password} />
+          <p>Apple ID는 iTunes, App Store, iCloud에 로그인할 때 사용하는 이메일 주소입니다.</p>
+          <button type="submit">로그인</button>
+          <Link to="/register" style={{ color: "gray", textDecoration: "none" }}>
+            Apple ID가 없으신가요? 지금 생성.
+          </Link>
+        </form>
+      </div>
     </div>
   );
 }

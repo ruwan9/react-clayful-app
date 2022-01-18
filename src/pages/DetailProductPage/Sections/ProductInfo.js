@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./ProductInfo.css";
 import { AuthContext } from "../../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import clayful from "clayful/client-js";
 import { Alert } from "react-bootstrap";
 
@@ -64,7 +64,10 @@ function ProductInfos({ detail }) {
       {show && (
         <Alert variant="info">
           <Alert.Heading> 상품이 장바구니에 담겼습니다.</Alert.Heading>
-          <p>장바구니에서 확인해주세요.</p>
+          <p>
+            {/* <Link to="/user/cart">장바구니</Link>에서 확인해주세요. */}
+            장바구니에서 확인해주세요.
+          </p>
         </Alert>
       )}
 

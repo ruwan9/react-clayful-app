@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import DetailProductPage from "./pages/DetailProductPage/DetailProductPage";
 import CartPage from "./pages/CartPage/CartPage";
 import PaymentPage from "./pages/PaymentPage/PaymentPage";
+import HistoryPage from "./pages/HistoryPage/HistoryPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/product/:productId" element={<DetailProductPage />}></Route>
         <Route path="/user/cart" element={<CartPage />}></Route>
         <Route path="/payment" element={<PaymentPage />}></Route>
+        <Route path="/history" element={<HistoryPage />}></Route>
       </Routes>
     </AuthContextProvider>
   );
